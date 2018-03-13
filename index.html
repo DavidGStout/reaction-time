@@ -13,6 +13,8 @@
 </head>
 <body>
 
+	<h1>Test your reaction time by clicking on the graphic.</h1>
+
 	<p>Your time: <span id="timeTaken"></span></p>
 
 	<div id="shape"></div>
@@ -28,7 +30,13 @@
 			var start = new Date().getTime();
 		}
 
-		setTimeout(makeShapeAppear, 1000);
+		function appearAfterDelay() {
+
+			setTimeout(makeShapeAppear, Math.random() * 2000);
+
+		}
+
+		appearAfterDelay();
 
 		document.getElementById("shape").onclick = function() {
 
@@ -39,6 +47,8 @@
 			var timeTaken = (end - start) / 1000;
 
 			document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+
+			appearAfterDelay();
 
 			
 		}
